@@ -1,6 +1,6 @@
 {
   "name": "poc-todo-extension",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "POC TODO list extension",
   "author": "yoet92",
   "license": "MIT",
@@ -61,6 +61,6 @@
     "dist"
   ],
   "dependencies": {
-    "poc-core-system": "^1.0.5"
+    "poc-core-system": "^1.0.8"
   }
 }
