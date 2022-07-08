@@ -59,5 +59,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "poc-core-system": "^1.0.1"
+  }
 }
