@@ -1,10 +1,7 @@
 import React from 'react'
 
-import { ExampleComponent } from 'poc-todo-extension'
-import 'poc-todo-extension/dist/index.css'
-
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <p>it works</p>
 }
 
 export default App
