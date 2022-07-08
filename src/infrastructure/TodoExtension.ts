@@ -1,14 +1,15 @@
 import {
-  Extension,
-  MenuRepositoryImpl,
-  MenuItem,
-  RegisterContent,
-  ContentRepositoryImpl,
-  Content,
   ActivateContent,
-  MenuRepository, ContentRepository
+  Content,
+  ContentRepository,
+  ContentRepositoryImpl,
+  Extension,
+  MenuItem,
+  MenuRepository,
+  MenuRepositoryImpl,
+  RegisterContent,
+  RegisterMenu
 } from 'poc-core-system';
-import { RegisterMenu } from 'poc-core-system/dist/domain/usecases';
 import { TodoComponent } from '../ui';
 
 const TODO_EXTENSION_ID = 'Todo extension';
