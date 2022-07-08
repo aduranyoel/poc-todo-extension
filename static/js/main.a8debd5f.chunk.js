@@ -1,0 +1,2 @@
+(this["webpackJsonppoc-todo-extension-example"]=this["webpackJsonppoc-todo-extension-example"]||[]).push([[0],{10:function(e,n,t){"use strict";t.r(n);t(3);var o=t(0),c=t.n(o),r=t(1),p=function(){return c.a.createElement("p",null,"it works")};t.n(r).a.render(c.a.createElement(p,null),document.getElementById("root"))},2:function(e,n,t){e.exports=t(10)},3:function(e,n,t){}},[[2,1,2]]]);
+//# sourceMappingURL=main.a8debd5f.chunk.js.map
