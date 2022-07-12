@@ -7,7 +7,6 @@ import {
   MenuItem,
   MenuRepository,
   MenuRepositoryImpl,
-  RegisterContent,
   RegisterMenu
 } from 'poc-core-system';
 import { TodoComponent } from '../ui';
@@ -27,7 +26,6 @@ export class TodoExtension implements Extension {
 
   async init(): Promise<void> {
     this.registerMenu();
-    this.registerContent();
   }
 
   async destroy(): Promise<void> {
@@ -41,11 +39,6 @@ export class TodoExtension implements Extension {
   private registerMenu(): void {
     const registerMenu = new RegisterMenu(this.menuRepository);
     registerMenu.invoke(this.menuItem);
-  }
-
-  private registerContent(): void {
-    const registerContent = new RegisterContent(this.contentRepository);
-    registerContent.invoke(this.todoContent);
   }
 
 }
