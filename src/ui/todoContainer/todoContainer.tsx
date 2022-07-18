@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { useBloCState } from 'poc-core-system';
 import React  from 'react';
 import { Todo } from '../../domain';
-import { TodoRepositoryImpl } from '../../infrastructure';
+import { ServiceResolver } from '../../infrastructure';
 import { AddForm } from '../addForm/addForm';
 import { Todos } from '../todos/todos';
 
@@ -15,8 +15,8 @@ const TodoLayout = styled.div`
 `;
 
 export const TodoContainer = (): JSX.Element => {
-  const todoRepository = TodoRepositoryImpl.getInstance();
-  const todos = useBloCState(todoRepository);
+  const todoRepository = ServiceResolver.resolve().TodoRepository;
+  const todos = useBloCState<Todo[]>(todoRepository);
 
   const addTodo = (task: string) => {
     if (task) {

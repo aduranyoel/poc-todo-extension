@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import { Todo } from '../../domain';
-import { TodoRepositoryImpl } from '../../infrastructure';
+import { ServiceResolver } from '../../infrastructure';
 
 const StyledLi = styled.li`
   list-style: none;
@@ -27,7 +27,7 @@ interface TodoProps {
 }
 
 export const TodoComponent = ({ todo }: TodoProps) => {
-  const todoRepository = TodoRepositoryImpl.getInstance();
+  const todoRepository = ServiceResolver.resolve().TodoRepository;
 
   return (
     <StyledLi className={todo.isDone ? 'done' : ''}>

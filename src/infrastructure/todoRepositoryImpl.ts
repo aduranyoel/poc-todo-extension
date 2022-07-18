@@ -2,17 +2,9 @@ import { BloC } from 'poc-core-system';
 import { Todo, TodoRepository } from '../domain';
 
 export class TodoRepositoryImpl extends BloC<Todo[]> implements TodoRepository {
-  private static instance: TodoRepositoryImpl;
 
-  private constructor() {
+  constructor() {
     super([]);
-  }
-
-  public static getInstance(): TodoRepositoryImpl {
-    if (!TodoRepositoryImpl.instance) {
-      TodoRepositoryImpl.instance = new TodoRepositoryImpl();
-    }
-    return TodoRepositoryImpl.instance;
   }
 
   add(todo: Todo): void {
