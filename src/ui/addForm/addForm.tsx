@@ -1,26 +1,5 @@
-import styled from '@emotion/styled';
+import { RoundedForm } from 'poc-ui-components';
 import React, { FormEvent, FormEventHandler, useRef } from 'react';
-
-const StyledForm = styled.form`
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4px;
-
-  & > * {
-    color: white;
-    border: 1px dashed rgb(255, 246, 230);
-    padding: 8px;
-    background: transparent;
-  }
-
-  & > .value {
-    border-radius: 1rem 0 0 1rem;
-  }
-
-  & > .action {
-    border-radius: 0 1rem 1rem 0;
-  }
-`;
 
 interface AddFormProps {
   onSubmit: (value: string) => void;
@@ -38,10 +17,10 @@ export const AddForm = ({ onSubmit }: AddFormProps): JSX.Element => {
   };
 
   return (
-    <StyledForm onSubmit={_onSubmit}>
-      <input placeholder="value goes here" className="value" ref={inputRef} type="text"/>
-      <button className="action" type="submit">Add</button>
-    </StyledForm>
+    <RoundedForm onSubmit={_onSubmit}>
+      <input style={{ width: '100%' }} placeholder="value goes here" ref={inputRef} type="text"/>
+      <button type="submit">Add</button>
+    </RoundedForm>
   );
 };
 
