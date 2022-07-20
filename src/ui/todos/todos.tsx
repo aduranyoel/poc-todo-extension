@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { Todo } from '../../domain';
 import { TodoComponent } from '../todo/todoComponent';
+import { Todo } from '../../entities';
 
 const StyledUl = styled.ul`
   display: grid;

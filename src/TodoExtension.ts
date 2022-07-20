@@ -1,13 +1,5 @@
-import {
-  ActivateContent,
-  Content,
-  ContentRepository,
-  Extension,
-  MenuItem,
-  MenuRepository,
-  RegisterMenu,
-  ServiceResolver,
-} from 'poc-core-system';
+import { Content, ContentService, Extension, MenuItem, MenuService, } from 'poc-core-system';
+import { SystemProvider } from 'poc-core-system/dist/infrastructure/systemProvider';
 import { TodoContainer } from './ui';
 
 const TODO_EXTENSION_ID = 'Todo extension';
@@ -20,8 +12,8 @@ export class TodoExtension implements Extension {
   private todoContent: Content = new Content(CONTENT_ID, TodoContainer);
 
   constructor(
-    private menuRepository: MenuRepository = ServiceResolver.resolve().MenuRepository,
-    private contentRepository: ContentRepository = ServiceResolver.resolve().ContentRepository,
+    private menuService: MenuService = SystemProvider.provide().MenuService,
+    private contentService: ContentService = SystemProvider.provide().ContentService,
   ) {}
 
   async init(): Promise<void> {
@@ -31,14 +23,12 @@ export class TodoExtension implements Extension {
   async destroy(): Promise<void> {
   }
 
-  openExtension(): void {
-    const activateContent = new ActivateContent(this.contentRepository);
-    activateContent.invoke(this.todoContent);
+  private openExtension(): void {
+    this.contentService.activate(this.todoContent);
   }
 
   private registerMenu(): void {
-    const registerMenu = new RegisterMenu(this.menuRepository);
-    registerMenu.invoke(this.menuItem);
+    this.menuService.register(this.menuItem);
   }
 
 }

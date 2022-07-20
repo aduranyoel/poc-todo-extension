@@ -10,10 +10,9 @@ export const AddForm = ({ onSubmit }: AddFormProps): JSX.Element => {
 
   const _onSubmit: FormEventHandler = (e: FormEvent) => {
     e.preventDefault();
-    if (inputRef.current) {
-      onSubmit(inputRef.current.value);
-      inputRef.current.value = '';
-    }
+    if (!inputRef.current) return
+    onSubmit(inputRef.current.value);
+    inputRef.current.value = '';
   };
 
   return (

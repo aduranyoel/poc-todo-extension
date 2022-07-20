@@ -1,16 +1,15 @@
-import { BloC } from 'poc-core-system';
-import { Todo, TodoRepository } from '../domain';
+import { TodoService } from '../abstracts';
+import { Todo } from '../../entities';
 
-export class TodoRepositoryImpl extends BloC<Todo[]> implements TodoRepository {
+export class TodoServiceImpl extends TodoService {
 
   constructor() {
     super([]);
   }
 
   add(todo: Todo): void {
-    if (!this.state.some((t: Todo) => t.id === todo.id)) {
-      this.setState([...this.state, todo]);
-    }
+    if (this.state.some((t: Todo) => t.id === todo.id)) return;
+    this.setState([...this.state, todo]);
   }
 
   complete(todo: Todo): void {
