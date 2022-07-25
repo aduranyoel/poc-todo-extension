@@ -1,5 +1,4 @@
-import { Content, ContentService, Extension, MenuItem, MenuService, } from 'poc-core-system';
-import { SystemProvider } from 'poc-core-system/dist/infrastructure/systemProvider';
+import { SystemProvider, Content, ContentService, Extension, MenuItem, MenuService, } from 'poc-core-system';
 import { TodoContainer } from './ui';
 
 const TODO_EXTENSION_ID = 'Todo extension';

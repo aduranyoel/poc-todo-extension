@@ -1,13 +1,13 @@
-import { TodoService } from './abstracts';
-import { TodoServiceImpl } from './implementations';
+import { TodoService } from '../abstracts';
+import { TodoServiceImpl } from '../implementations';
 
 export class TodoProvider {
-  public TodoRepository: TodoService;
+  public TodoService: TodoService;
 
   private static instance: TodoProvider;
 
   private constructor() {
-    this.TodoRepository = new TodoServiceImpl();
+    this.TodoService = new TodoServiceImpl();
   }
 
   public static provide(): TodoProvider {

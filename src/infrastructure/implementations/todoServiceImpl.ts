@@ -1,5 +1,5 @@
 import { TodoService } from '../abstracts';
-import { Todo } from '../../entities';
+import { Todo } from '../../domain';
 
 export class TodoServiceImpl extends TodoService {
 
@@ -8,19 +8,19 @@ export class TodoServiceImpl extends TodoService {
   }
 
   add(todo: Todo): void {
-    if (this.state.some((t: Todo) => t.id === todo.id)) return;
-    this.setState([...this.state, todo]);
+    if (this.value.some((t: Todo) => t.id === todo.id)) return;
+    this.next([...this.value, todo]);
   }
 
   complete(todo: Todo): void {
-    const idx = this.state.findIndex(t => t.id === todo.id);
+    const idx = this.value.findIndex(t => t.id === todo.id);
     todo.isDone = true;
-    const newState = [...this.state];
-    newState.splice(idx, 1, todo);
-    this.setState(newState);
+    const newValue = [...this.value];
+    newValue.splice(idx, 1, todo);
+    this.next(newValue);
   }
 
   remove(todo: Todo): void {
-    this.setState(this.state.filter(t => t.id !== todo.id));
+    this.next(this.value.filter(t => t.id !== todo.id));
   }
 }

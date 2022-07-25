@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { RoundedButton } from 'poc-ui-components';
 import React from 'react';
-import { Todo } from '../../entities';
+import { Todo } from '../../domain';
 import { TodoProvider } from '../../infrastructure';
 
 const StyledLi = styled.li`
@@ -19,12 +19,12 @@ interface TodoProps {
 }
 
 export const TodoComponent = ({ todo }: TodoProps) => {
-  const todoRepository = TodoProvider.provide().TodoRepository;
+  const todoService = TodoProvider.provide().TodoService;
 
   return (
     <StyledLi className={todo.isDone ? 'task--done' : ''}>
-      <label  onClick={() => todoRepository.complete(todo)}>{todo.task}</label>
-      <RoundedButton onClick={() => todoRepository.remove(todo)}>X</RoundedButton>
+      <label  onClick={() => todoService.complete(todo)}>{todo.task}</label>
+      <RoundedButton onClick={() => todoService.remove(todo)}>X</RoundedButton>
     </StyledLi>
   );
 };
